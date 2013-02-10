@@ -22,3 +22,10 @@ not_found do
   erb :not_found
 end
 
+get '/instance' do
+    @name = "DAZ"
+      erb :show
+end
+__END__
+@@show
+<h1>Hello <%= @name %>!</h1>
