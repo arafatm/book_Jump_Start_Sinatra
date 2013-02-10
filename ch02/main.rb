@@ -6,15 +6,16 @@ end
 
 __END__
 @@home
+<% title="Songs By Sinatra" %>
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Songs By Sinatra</title>
-  <meta charset="utf-8">
-</head>
+  <title><%= title %></title>
+    <meta charset="utf-8">
+  </head>
 <body>
   <header>
-    <h1>Songs By Sinatra</h1>
+    <h1><%= title %></h1>
     <nav>
       <ul>
         <li><a href="/" title="Home">Home</a></li>
