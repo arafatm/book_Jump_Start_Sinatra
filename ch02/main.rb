@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'sinatra'
 
 get '/' do
@@ -12,6 +13,12 @@ get '/contact' do
   erb :contact
 end
 
+get '/fake-error' do
+  status 500
+  "There’s nothing wrong, really :P"
+end 
+
 not_found do
   erb :not_found
 end
+
