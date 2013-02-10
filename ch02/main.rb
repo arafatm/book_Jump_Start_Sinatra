@@ -5,10 +5,13 @@ get '/' do
 end
 
 get '/about' do
-    erb :about
+  erb :about
 end
 
 get '/contact' do
-    erb :contact
+  erb :contact
 end
 
+not_found do
+  erb :not_found
+end
