@@ -2,4 +2,5 @@
 *.rbc
 .bundle
 .config
+.sass-cache
 Gemfile.lock
