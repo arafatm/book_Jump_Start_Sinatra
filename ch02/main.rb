@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'slim'
 
+get('/styles.css'){ scss :styles }
+
 get '/' do
   slim :home
 end
