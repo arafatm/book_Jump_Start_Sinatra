@@ -3,4 +3,5 @@
 .bundle
 .config
 .sass-cache
+*.db
 Gemfile.lock
