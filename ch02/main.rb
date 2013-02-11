@@ -1,17 +1,18 @@
 # encoding: UTF-8
 require 'sinatra'
+require 'slim'
 
 get '/' do
-  erb :home
+  slim :home
 end
 
 get '/about' do
   @title = "All About This Website"
-  erb :about
+  slim :about
 end
 
 get '/contact' do
-  erb :contact
+  slim :contact
 end
 
 get '/fake-error' do
@@ -20,12 +21,12 @@ get '/fake-error' do
 end 
 
 not_found do
-  erb :not_found
+  slim :not_found
 end
 
 get '/instance' do
-    @name = "DAZ"
-      erb :show
+  @name = "DAZ"
+  slim :show
 end
 __END__
 @@show
