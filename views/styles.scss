@@ -26,20 +26,20 @@ header h1 {
     padding: 0;
     background: $background;
     overflow: hidden;
+}
+li {
+  float: left;
+}
+a {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  background: $background;
+  color: $color;
+  &:hover {
+    background: darken($background, 20%);
   }
-  li {
-    float: left;
-  }
-  a {
-    text-decoration: none;
-    display: block;
-    padding: 8px;
-    background: $background;
-    color: $color;
-    &:hover {
-      background: darken($background, 20%);
-    }
-  }
+}
 }
 
 nav {
@@ -50,3 +50,5 @@ nav {
 p {
   font: 13px/1.4 $main-font;
 }
+
+label { display: block; }
