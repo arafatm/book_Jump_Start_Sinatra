@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'sinatra'
 require 'slim'
+require './song.rb'
 
 get('/styles.css'){ scss :styles }
 
