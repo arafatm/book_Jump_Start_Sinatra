@@ -14,6 +14,10 @@ class Song
   property :released_on, Date
 end
 
+def released_on=date
+  super Date.strptime(date, '%m/%d/%Y')
+end
+
 DataMapper.finalize
 
 get '/songs' do
