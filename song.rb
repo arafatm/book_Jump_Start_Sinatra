@@ -3,7 +3,9 @@ require 'dm-migrations'
 require 'sinatra'
 require 'slim'
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+configure do
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+end
 
 class Song
   include DataMapper::Resource
