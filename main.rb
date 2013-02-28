@@ -31,6 +31,19 @@ get '/instance' do
   @name = "DAZ"
   slim :show
 end
+
+get '/environment' do
+  if development?
+    "development" 
+  elsif production?
+    "production" 
+  elsif test?
+    "test" 
+  else
+    "Who knows what environment you're in!"
+  end
+end
+
 __END__
 @@show
 <h1>Hello <%= @name %>!</h1>
