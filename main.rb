@@ -3,6 +3,19 @@ require 'sinatra'
 require 'slim'
 require './song.rb'
 
+configure do
+  set :session_secret, 'try to make this long and hard to guess'
+  enable :sessions
+end
+
+get '/set/:name' do
+  session[:name] = params[:name]
+end
+
+get '/get/hello' do
+  "Hello #{session[:name]}"
+end
+
 get('/styles.css'){ scss :styles }
 
 get '/' do
