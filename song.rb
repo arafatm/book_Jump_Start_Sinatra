@@ -3,6 +3,7 @@ require 'dm-migrations'
 require 'sinatra'
 require 'slim'
 
+<<<<<<< HEAD
 configure :development do
   DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 end
@@ -11,6 +12,8 @@ end
 configure :production do
 end
 
+=======
+>>>>>>> 487cb0481e87486fd32ae3294d127b02d4ef264c
 class Song
   include DataMapper::Resource
   property :id, Serial
@@ -32,6 +35,7 @@ get '/songs' do
 end
 
 get '/songs/new' do
+  halt(401,'Not Authorized') unless session[:admin]
   @song = Song.new
   slim :new_song
 end

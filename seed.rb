@@ -1,5 +1,5 @@
+require './main.rb'
 require './song.rb'
-require 'awesome_print'
 
 Song.auto_migrate_down!
 Song.auto_migrate_up!
@@ -11,11 +11,3 @@ Song.create(title:        "My Way",
             lyrics:       "My Way ...",
             length:       207, 
             released_on:  Date.new(1969,3,9))
-
-puts '---'
-puts "Song.count = #{Song.count}"
-puts "---"
-puts "Song.first"
-ap Song.first.attributes.to_hash
-
-

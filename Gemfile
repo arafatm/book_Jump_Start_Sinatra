@@ -1,8 +1,17 @@
 source "https://rubygems.org"
 gem "sinatra", :require => "sinatra/base"
-gem "shotgun"
 gem "slim"
 gem 'sass'
-gem 'sqlite3'
 gem 'data_mapper'
-gem 'dm-sqlite-adapter'
+
+group :production do
+  gem 'thin'
+  gem 'pg'
+  gem 'dm-postgres-adapter'
+end
+
+group :development do
+  gem "shotgun"
+  gem 'sqlite3'
+  gem 'dm-sqlite-adapter'
+end
