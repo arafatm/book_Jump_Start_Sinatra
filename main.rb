@@ -17,6 +17,22 @@ configure :production do
   DataMapper.setup(:default, ENV['DATABASE_URL'])
 end
 
+# To use:
+# == css :style1, style2, :style3
+# generates:
+# <link href="/style1.css" media="screen projection" rel="stylesheet"/>
+# <link href="/style2.css" media="screen projection" rel="stylesheet"/>
+# <link href="/style3.css" media="screen projection" rel="stylesheet"/>
+helpers do
+  def css(*stylesheets)
+    stylesheets.map do |stylesheet| 
+      "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"
+    end.join
+  end
+end
+
+
+
 get '/set/:name' do
   session[:name] = params[:name]
 end
