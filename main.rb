@@ -3,6 +3,9 @@ require 'sinatra'
 require 'slim'
 require './song.rb'
 
+
+# =====
+# configure blocks
 configure do
   set :session_secret, 'try to make this long and hard to guess'
   enable :sessions
@@ -17,30 +20,30 @@ configure :production do
   DataMapper.setup(:default, ENV['DATABASE_URL'])
 end
 
-# To use:
-# == css :style1, style2, :style3
-# generates:
-# <link href="/style1.css" media="screen projection" rel="stylesheet"/>
-# <link href="/style2.css" media="screen projection" rel="stylesheet"/>
-# <link href="/style3.css" media="screen projection" rel="stylesheet"/>
+# =====
+# helpers
 helpers do
+  # To use:
+  # == css :style1, style2, :style3
+  # generates:
+  # <link href="/style1.css" media="screen projection" rel="stylesheet"/>
+  # <link href="/style2.css" media="screen projection" rel="stylesheet"/>
+  # <link href="/style3.css" media="screen projection" rel="stylesheet"/>
   def css(*stylesheets)
     stylesheets.map do |stylesheet| 
       "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"
     end.join
   end
+
+  # style link to current page differently
+  def current?(path='/')
+    puts "current: #{request.path}, #{path}"
+    (request.path==path || request.path==path+'/*') ? "current" : nil
+  end
 end
 
-
-
-get '/set/:name' do
-  session[:name] = params[:name]
-end
-
-get '/get/hello' do
-  "Hello #{session[:name]}"
-end
-
+# =====
+# session routes
 get '/login' do
   slim :login
 end
@@ -60,8 +63,12 @@ get '/logout' do
   redirect to('/login')
 end
 
+# =====
+# asset routes
 get('/styles.css'){ scss :styles }
 
+# =====
+# main routes
 get '/' do
   slim :home
 end
