@@ -40,6 +40,14 @@ helpers do
     puts "current: #{request.path}, #{path}"
     (request.path==path || request.path==path+'/*') ? "current" : nil
   end
+
+  def set_title
+    @title ||= "Song by Sinatra"
+  end
+end
+
+before do
+  set_title
 end
 
 # =====

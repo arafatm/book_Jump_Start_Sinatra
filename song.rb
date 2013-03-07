@@ -26,6 +26,10 @@ end
 
 DataMapper.finalize
 
+before do
+  @title = "Manage Songs"
+end
+
 get '/songs' do
   @songs = Song.all
   slim :songs
