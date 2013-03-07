@@ -64,7 +64,7 @@ get '/songs/:id' do
 end
 
 post '/songs' do
-  song = create_song
+  flash[:notice] = "Song successfully added" if create_song
   redirect to("/songs/#{@song.id}")
 end
 

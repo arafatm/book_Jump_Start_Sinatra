@@ -3,6 +3,7 @@ gem "sinatra", :require => "sinatra/base"
 gem "slim"
 gem 'sass'
 gem 'data_mapper'
+gem 'sinatra-flash'
 
 group :production do
   gem 'thin'

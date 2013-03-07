@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'slim'
 require './song.rb'
+require 'sinatra/flash'
 
 
 # =====
